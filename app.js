@@ -42,11 +42,17 @@ function calculateResults() {
         // Hide loader
         document.getElementById('loading').style.display = 'none';
     }
+    
+    if(amount.value <= 0 ) {
+        showError('Please check your numbers');
+    }
+
     else {
        showError('Please check your numbers'); 
     }
 
 }
+
 
 // Show error
 function showError(error) {
@@ -70,11 +76,12 @@ function showError(error) {
     errorDiv.appendChild(document.createTextNode(error))
 
     // Insert error above heading
-    card.insertBefore(errorDiv, heading);
+    card.insertBefore(errorDiv, heading);        
 
     // Clear Error after 3 seconds
     setTimeout(clearError, 3000);
 }
+
 
 // Clear error
 function clearError() {
